@@ -2,7 +2,7 @@ name: Build android flutter apk
 on: 
   push:
     branches:
-      - master
+      - "master"
 jobs:
   build-apk:
     runs-on: ubuntu-latest
