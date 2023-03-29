@@ -1,5 +1,6 @@
 name: Build android flutter apk
 on: 
+  workflow_dispatch:
   push:
     branches:
       - "master"
@@ -9,19 +10,19 @@ jobs:
     steps:
       - name: checkout repository code
         uses: actions/checkout@v3
-      - name: setup java
-        uses: actions/setup-java@v2
-        with:
-          distribution: "zulu"
-          java-version: "11"
-      - name: set up flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.7.7'
-      - name: Build-apk
-        uses: flutter build apk --release
-      - name: Publish APK
-        uses: actions/upload-artifact@v3
-        with:
-          name: app-release.apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+      # - name: setup java
+      #   uses: actions/setup-java@v2
+      #   with:
+      #     distribution: "zulu"
+      #     java-version: "11"
+      # - name: set up flutter
+      #   uses: subosito/flutter-action@v2
+      #   with:
+      #     flutter-version: '3.7.7'
+      # - name: Build-apk
+      #   uses: flutter build apk --release
+      # - name: Publish APK
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: app-release.apk
+      #     path: build/app/outputs/flutter-apk/app-release.apk
